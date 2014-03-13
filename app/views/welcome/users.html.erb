@@ -1,0 +1,31 @@
+<%= render(:partial=>"navbar") %>	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	<div class="container pt">
+		<div class="row mt">
+			<div class="col-lg-6 col-lg-offset-3 centered">
+				<h3>Registered Users</h3>
+				<hr>
+				<p>This section will display the number of registered users in the site. <br/> Click on the user image to see details</p>
+			</div>
+		</div>
+		<% count = 1 %>
+		
+		<% @user.each do |user| %>
+			<% if count == 1 %>
+				<div class="row mt centered">
+			<% end %>
+					<div class="col-lg-4">															
+						<%= link_to(image_tag(user.avatar.url(:normal), :alt=> (user.first_name + " " + user.last_name), :class=> "img-responsive", :style=>"margin: auto; border: 2px solid #444444;"), { :action=>"user_show", :id=>user.id } ) %>	
+						<p><%= user.first_name + " " + user.last_name %></p>				
+					</div>
+			<% if count == 3 %>
+				</div>
+			<% end %>	
+			<% count == 3 ? count=1 : count+=1 %>		
+		<% end %>
+		
+	</div><!-- /container -->	
+	
+	<%= render(:partial=>"footer")%>

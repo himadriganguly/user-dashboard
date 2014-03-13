@@ -1,0 +1,64 @@
+<%= render(:partial=>"navbar") %>	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	<div class="container pt">
+		<div class="row mt">
+			<div class="col-lg-6 col-lg-offset-3 centered">
+				<h3>Registered Users</h3>
+				<hr>
+				<p>This section will displays details of a particular user</p>
+			</div>
+		</div>
+		
+		<div class="row mt">
+			<div class="col-lg-4">
+				<%= image_tag @user.avatar.url(:normal), :alt=> (@user.first_name + " " + @user.last_name), :class=> "img-responsive", :style=>"margin: auto; border: 2px solid #444444;" %>
+				<% if @user.followers.count != 0 %>
+					<div class="followers" style="overflow: hidden;">
+						<h4>Followers: <%= @user.followers.count %></h4>
+						<hr />
+						<% @user.followers.each do |user| %>
+						<p style="float: left; margin-right: 5px;">
+							<%= link_to(image_tag(user.avatar.url(:normal), :alt=> (user.first_name + " " + user.last_name), :class=> "img-followers", :style=>"width: 50px; height: 50px;"), { :action=>"user_show", :id=>user.id }, :title=>(user.first_name + " " + user.last_name) ) %>							
+						</p>
+					<% end %>
+					</div>					
+				<% end %>	
+				
+				<% if @user.followed_users.count != 0 %>
+					<div class="clearfrix"></div>
+					<div class="following" style="overflow: hidden;">
+						<h4>Following: <%= @user.followed_users.count %></h4>
+						<hr />
+						<% @user.followed_users.each do |user| %>
+							<p style="float: left; margin-right: 5px;">
+								<%= link_to(image_tag(user.avatar.url(:normal), :alt=> (user.first_name + " " + user.last_name), :class=> "img-followers", :style=>"width: 50px; height: 50px;"), { :action=>"user_show", :id=>user.id }, :title=>(user.first_name + " " + user.last_name) ) %>							
+							</p>
+						<% end %>	
+					</div>						
+				<% end %>	
+			</div><!-- /colg-lg-6 -->
+			
+			<div class="col-lg-8">
+				<h4 style="margin-top: 0px;"><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h4>
+				<p style="margin-bottom: 10px;"><strong>Date of Join: </strong><%= @user.created_at.to_date.inspect %></p>
+				<p style="margin-bottom: 10px;"><strong>Last Active on: </strong><%= @user.last_sign_in_at.to_date.inspect %></p>
+				<%if user_signed_in? %>
+					<% if current_user.id != @user.id && !current_user.following?(@user) %>
+						<%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
+						  <div><%= f.hidden_field :followed_id, value: @user.id %></div>
+						  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+						<% end %>
+					<% elsif current_user.id != @user.id && current_user.following?(@user) %>
+						<%= form_for current_user.relationships.find_by(followed_id: @user.id), html: { method: :delete } do |f| %>						  
+						  <%= f.submit "Unfollow", class: "btn btn-large" %>
+						<% end %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		
+	</div><!-- /container -->	
+	
+	<%= render(:partial=>"footer")%>

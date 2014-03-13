@@ -1,0 +1,29 @@
+        <% content_for(:head) do %>
+			<%= stylesheet_link_tag "dashboard/AdminLTE.css", media: "all", "data-turbolinks-track" => true %>
+		<% end %>	
+        <div class="form-box" id="login-box">
+            <div class="header">Sign In</div>
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+            	<div class="body bg-gray">
+            		<div class="form-group">
+  						<%= f.email_field :email, :autofocus => true, :placeholder=>"Enter Email", :class=>"form-control" %>
+  					</div>
+  					
+  					<div class="form-group">
+				  		<%= f.password_field :password, :placeholder=>"Enter Password", :class=>"form-control" %>
+				  	</div>
+				
+					<% if devise_mapping.rememberable? -%>
+						<div class="form-group">
+							<%= f.check_box :remember_me %> <%= f.label :remember_me %>
+						</div>
+					<% end -%>
+									  	                  
+                </div>
+                <div class="footer">        
+                	<%= f.submit "Sign me in", :class=>"btn bg-olive btn-block" %>                                            
+            <% end %>
+                    <center><%= render "devise/shared/links" %></center>
+                </div>
+            </form>
+        </div>

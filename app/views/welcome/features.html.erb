@@ -1,0 +1,55 @@
+    <%= render(:partial=>"navbar") %>
+    
+    <!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">									
+					<h1>User Dashboard Features</h1>					
+					<ul style="text-align: left;">
+						<li>
+							<strong>Version 1.0.0</strong>
+							<ul>
+								<li>
+									<strong>Front-end</strong>
+									<ul>
+										<li>Signup with email confirmation</li>
+										<li>Login with Remember me</li>
+										<li>List of registered Users</li>
+										<li>Details of each individual user</li>
+										<li>Follow other user after login</li>
+									</ul>
+								</li>
+								<li>
+									<strong>User Dashboard</strong>
+									<ul>
+										<li>Dashboard Controlpanel with advanced information about the logged in user</li>
+										<li>List showing the last 3 followers and following users</li>
+										<li>Profile Panel to update user details such as email address, password and avatar image</li>										
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					
+					<h3>Future Version</h3>
+					<ul style="text-align: left;">
+						<li>
+							<strong>Version 1.0.1</strong>
+							<ul>
+								<li>
+									<strong>Front-end</strong>
+									<ul>
+										<li>Send email to user when a user follow him/her with the follower name</li>
+										<li>Change the follow button using Angular Js so that whenever the button is clicked it changed to Unfollow and also update the Followers box. It will also display Unfollow if the current user is following the user.</li>																			
+									</ul>
+								</li>
+							</ul>
+						</li>	
+					</ul>
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	<%= render(:partial=>"footer")%>
