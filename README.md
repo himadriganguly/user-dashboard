@@ -6,24 +6,24 @@ The demo of this application can be found at - [**View Demo**](http://)
 
 ## Features
 
-*Version 1.0.0
-	*Front-end
-		*Signup with email confirmation
-		*Login with Remember me
-		*List of registered Users
-		*Details of each individual user
-		*Follow other user after login
-	*User Dashboard
-		*Dashboard Controlpanel with advanced information about the logged in user
-		*List showing the last 3 followers and following users
-		*Profile Panel to update user details such as email address, password and avatar image
+* Version 1.0.0
+	* Front-end
+		* Signup with email confirmation
+		* Login with Remember me
+		* List of registered Users
+		* Details of each individual user
+		* Follow other user after login
+	* User Dashboard
+		* Dashboard Controlpanel with advanced information about the logged in user
+		* List showing the last 3 followers and following users
+		* Profile Panel to update user details such as email address, password and avatar image
 
 **Future Version**
 
-*Version 1.0.1
-	*Front-end
-		*Send email to user when a user follow him/her with the follower name
-		*Change the follow button using Angular Js so that whenever the button is clicked it changed to Unfollow and also update the Followers box. It will also display Unfollow if the current user is following the user.
+* Version 1.0.1
+	* Front-end
+		* Send email to user when a user follow him/her with the follower name
+		* Change the follow button using Angular Js so that whenever the button is clicked it changed to Unfollow and also update the Followers box. It will also display Unfollow if the current user is following the user.
 
 ## Requirements
 
