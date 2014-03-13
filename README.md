@@ -2,7 +2,7 @@
 
 This is a sample User Dashboard Application using Ruby on Rails. The project was developed as a practice application to learn Ruby on Rails. In this project many of the popular gems is used such as Devise, Paperclip.
 
-The demo of this application can be found at - [**View Demo**](http://)
+The demo of this application can be found at - [**View Demo**](http://userdashboard.herokuapp.com/)
 
 ## Features
 
@@ -29,7 +29,7 @@ The demo of this application can be found at - [**View Demo**](http://)
 
 1. Ruby version **2.0**
 2. Ruby on Rails version **4.0**
-3. Mailcatcher gem (Optional)
+3. Mailcatcher gem
 
 ## Installation
 
