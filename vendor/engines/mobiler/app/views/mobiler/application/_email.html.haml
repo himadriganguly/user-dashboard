@@ -5,5 +5,8 @@
   %hr
   .subject= email.subject
   .from_addr= email.from
-  - email.body.parts[1..-1].each do |part|
-    = part.decoded.html_safe
+  - if email.body.parts.any?
+    - email.body.parts[1..-1].each do |part|
+      = part.decoded.html_safe
+  - else
+    = email.body.decoded.html_safe
