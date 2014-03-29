@@ -1,0 +1,6 @@
+= Mobiler
+
+Configuration: in mobiler/config/filter.rb
+For testing, owerwrite gmail email and password in ApplicationController
+Password can be specified as a environment variable - It should be more corectly.
+This project rocks and uses MIT-LICENSE.

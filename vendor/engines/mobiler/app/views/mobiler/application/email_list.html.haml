@@ -1,0 +1,13 @@
+.gmail_title
+  GMail (
+  %b= @unread_count
+  of
+  %b= @read_count
+  unreaded,
+  Total:
+  %b= @inbox_count
+  )
+%br
+= render partial: "email", collection: @emails
+
+- @gmail.logout

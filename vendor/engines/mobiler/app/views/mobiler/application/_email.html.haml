@@ -1,0 +1,12 @@
+/config/filter.rb
+- return if Mobiler::Filter.process(email) == Mobiler::FILTER_STATUS_SKIP_EMAIL
+
+.email
+  %hr
+  .subject= email.subject
+  .from_addr= email.from
+  - if email.body.parts.any?
+    - email.body.parts[1..-1].each do |part|
+      = part.decoded.html_safe
+  - else
+    = email.body.decoded.html_safe
