@@ -1,31 +1,35 @@
+# UseR_DushboarD Routings
+#
 UserDashboard::Application.routes.draw do
-  #devise_for :users
-  
-  devise_for :users, :path=>"", :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'}  
-      
+
+  # Mobiler engine's url starts with '/m/' path!
+  mount Mobiler::Engine, at: "m"
+
+  devise_for :users, :path=>"", :path_names => {:sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'}
+
   get "/users" => 'welcome#users'
   get 'users/:id' => 'welcome#user_show', :as => 'user'
-  get "/about" => 'welcome#about'  
+  get "/about" => 'welcome#about'
   get "/contributors" => 'welcome#contributors'
-  get "/contact" => 'welcome#contact' 
+  get "/contact" => 'welcome#contact'
   get "/features" => 'welcome#features'
-  
-  #post "/relationships" => 'relationships#create'
-  #delete "/relationships" => 'relationships#destroy'
+
   resources :relationships, :only => [:create, :destroy]
 
   get "dashboard" => 'dashboard#index'
-  namespace :dashboard do	
+
+  namespace :dashboard do
   	get "profile"
-	  put "update"
+    put "update"
+    get "handy_mails"
   end
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+end
+
+
+  ####################################################################################
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -74,4 +78,4 @@ UserDashboard::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+  ######################################################################################
