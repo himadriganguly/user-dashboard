@@ -43,7 +43,9 @@
 			<div class="col-lg-8">
 				<h4 style="margin-top: 0px;"><%= @user.first_name.capitalize + " " + @user.last_name.capitalize %></h4>
 				<p style="margin-bottom: 10px;"><strong>Date of Join: </strong><%= @user.created_at.to_date.inspect %></p>
-				<p style="margin-bottom: 10px;"><strong>Last Active on: </strong><%= @user.last_sign_in_at.to_date.inspect %></p>
+				<%if @user.last_sign_in_at %>
+					<p style="margin-bottom: 10px;"><strong>Last Active on: </strong><%= @user.last_sign_in_at.to_date.inspect %></p>
+				<% end %>
 				<%if user_signed_in? %>
 					<% if current_user.id != @user.id && !current_user.following?(@user) %>
 						<%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
