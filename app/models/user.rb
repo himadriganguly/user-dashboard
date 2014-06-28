@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
   
-  validates :follower_id, :followed_id, presence: true
-  validates_uniqueness_of :follower_id, scope: [:followed_id]
+  #validates :follower_id, :followed_id, presence: true
+  #validates_uniqueness_of :follower_id, scope: [:followed_id]
   
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
