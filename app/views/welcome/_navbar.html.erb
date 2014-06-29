@@ -37,7 +37,7 @@
             <% if user_signed_in? %>
             <li class="dropdown user user-menu">
             	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span style="text-transform: none"><%= current_user.first_name + " " + current_user.last_name %> <i class="caret"></i></span>
+                    <span style="text-transform: none"><%= current_user.full_name %> <i class="caret"></i></span>
                 </a>
                 <ul class="dropdown-menu">
                 	<li class="user-body">
