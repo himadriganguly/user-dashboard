@@ -13,7 +13,7 @@
 		
 		<div class="row mt">
 			<div class="col-lg-4">
-				<%= image_tag @user.avatar.url(:normal), :alt=> (@user.first_name + " " + @user.last_name), :class=> "img-responsive", :style=>"margin: auto; border: 2px solid #444444;" %>
+				<%= image_tag @user.avatar.url(:original), :alt=> (@user.first_name + " " + @user.last_name), :class=> "img-responsive", :style=>"margin: auto; border: 2px solid #444444;" %>
 				<% if @user.followers.count != 0 %>
 					<div class="followers" style="overflow: hidden;">
 						<h4>Followers: <%= @user.followers.count %></h4>
