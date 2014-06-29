@@ -204,14 +204,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span><%= current_user.first_name %><i class="caret"></i></span>
+                                <span><%= current_user.first_name.capitalize %><i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                 	<%= image_tag current_user.avatar.url, :class=>"img-circle", :alt=>"User Image" %>                             
                                     <p>
-                                        <%= current_user.first_name + " " + current_user.last_name %>
+                                        <%= current_user.full_name %>
                                         <small><%= current_user.created_at.to_date.inspect %></small>
                                     </p>
                                 </li>
