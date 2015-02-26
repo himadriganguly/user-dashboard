@@ -30,3 +30,6 @@ config/secrets.yml
 
 #database yml file
 /config/database.yml
+
+# Ignore IDE settings
+/.idea

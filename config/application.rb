@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+require_relative '../lib/exceptions/invalid_role_type'
+
 module UserDashboard
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
