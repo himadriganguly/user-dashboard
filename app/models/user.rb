@@ -23,7 +23,9 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
-  
+
+  belongs_to :role, polymorphic: true
+
   #validates :follower_id, :followed_id, presence: true
   #validates_uniqueness_of :follower_id, scope: [:followed_id]
   
@@ -38,5 +40,6 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
-   
+
+  ROLES = %w(window_shopper contributor)
 end

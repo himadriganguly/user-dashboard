@@ -1,0 +1,2 @@
+class InvalidRoleType < RuntimeError
+end

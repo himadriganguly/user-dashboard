@@ -29,4 +29,6 @@ UserDashboard::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  config.secret_key_base = '4eec01b89d9a892f933fc9fed5f8fde886f1d51c724cec70bf77ca99301e1a1d9f2ffeba08014ef874d55cfa09d891f49b73120d6868e189afe1b21f272481aa'
 end
