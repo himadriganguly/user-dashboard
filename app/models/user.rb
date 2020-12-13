@@ -38,5 +38,10 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  def full_name
+    last_name = self.last_name.capitalize if self.last_name
+    "#{self.first_name.capitalize}  #{last_name}" 
+  end
    
 end
